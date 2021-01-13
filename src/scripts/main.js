@@ -10,3 +10,11 @@ import { Nutshell } from "./Nutshell.js"
     4. Also, if the user authenticates, and the login form is initially shown
         ensure that the Nutshell component gets rendered
 */
+
+import { eventList } from "./events/eventList.js"
+import { createNewEventButton } from "./events/eventForm.js"
+
+eventList();
+createNewEventButton();
+
+

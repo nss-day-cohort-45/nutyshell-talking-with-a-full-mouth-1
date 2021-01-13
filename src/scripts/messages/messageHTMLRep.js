@@ -1,11 +1,17 @@
 //Christine
 
 //Renders the message into HTML for rendering to the DOM
+//Appends the username to the message text
 
-export const messageHTMLRep = (messageObj, users) => {
-    const userId = sessionStorage.getItem("activeUser")
+import { useUsers } from "../users/userProvider.js"
+
+let currentUser = useUsers()
+
+export const messageHTMLRep = (messageObj, currentUser) => {
+    
+
     return `
-    <section class="message--${users.username}" id="message">
+    <section class="message--${currentUser.username}" id="message">
         <div class="message__author" id="message__author">
         
         </div>
@@ -17,4 +23,3 @@ export const messageHTMLRep = (messageObj, users) => {
     `
 }
 
-//Still need to figure out how to match user id's to find username

@@ -5,6 +5,7 @@
 //Handles browser-generated click event of sendMessage
 
 import { getMessages, saveMessage } from "./messageProvider.js"
+import { useUsers } from "../users/userProvider.js"
 
 const contentTarget = document.querySelector(".dashboard__messages")
 const eventHub = document.querySelector(".container")
@@ -23,12 +24,12 @@ export const messageForm = () => {
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "send__message") {
-        const user = document.querySelector("??").value
         const text = document.querySelector("#message__text").value
+        const userId = sessionStorage.getItem("activeUser")
 
         const newMessage = {
-            user = user,
-            text = text
+            user: userId,
+            text: text
         }
         saveMessage(newMessage)
     }

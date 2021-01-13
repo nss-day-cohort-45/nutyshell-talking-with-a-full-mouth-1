@@ -22,5 +22,14 @@ export const messageForm = () => {
 }
 
 eventHub.addEventListener("click", clickEvent => {
-    if
+    if (clickEvent.target.id === "send__message") {
+        const user = document.querySelector("??").value
+        const text = document.querySelector("#message__text").value
+
+        const newMessage = {
+            user = user,
+            text = text
+        }
+        saveMessage(newMessage)
+    }
 })

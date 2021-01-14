@@ -7,7 +7,7 @@
 import { getMessages, saveMessage } from "./messageProvider.js"
 import { useUsers, getUsers } from "../users/userProvider.js"
 
-const contentTarget = document.querySelector(".dashboard__messages")
+const contentTarget = document.querySelector(".dashboard__messages--form")
 const eventHub = document.querySelector(".container")
 
 const render = () => {
@@ -18,12 +18,14 @@ const render = () => {
 }
 
 export const messageForm = () => {
-    getMessages()
+    return getMessages()
         .then(() => render())
 }
 
 eventHub.addEventListener("click", clickEvent => {
+    console.log("Click event listening")
     if (clickEvent.target.id === "send__message") {
+        clickEvent.preventDefault()
         const text = document.querySelector("#message__text").value
         const userId = parseInt(sessionStorage.getItem("activeUser"))
         let userObj = ""

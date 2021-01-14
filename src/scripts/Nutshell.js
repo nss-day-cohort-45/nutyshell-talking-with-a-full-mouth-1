@@ -12,7 +12,10 @@ export const Nutshell = () => {
     articleDialog();
     articleList();
     messageForm()
-    messageList()
+    .then(() => {
+        messageList()
+    })
+    
 
     // Will rener the createNewEventButton and list of upcoming events on initial page load
     createNewEventButton();

@@ -5,20 +5,17 @@
 
 import { useUsers, getUsers } from "../users/userProvider.js"
 
-
-
-export const messageHTMLRep = (messageObj, userObj) => {
-    const userId = sessionStorage.getItem("activeUser")
+export const messageHTMLRep = (messageObj) => {
+    const userId = parseInt(sessionStorage.getItem("activeUser"))
     let userObj =""
-    getUsers()
+    return getUsers()
         .then(() => {
             let users = useUsers()
             userObj = users.find(user => user.id === userId)
-        
-
+           
     return `
     <section class="message__author" id="message--${messageObj.id}">
-        <div class="message__author" id="message__author>
+        <div class="message__author" id="message__author">
         ${userObj.username}
         </div>
         <div class="message__text" id="message__text"> 

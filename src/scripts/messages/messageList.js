@@ -5,19 +5,23 @@
 //renders messageList to the DOM
 //communicates with provider when sendMessage btn is clicked
 
-import { useMessages, getMessages, saveMessage } from "./messageProvider.js"
+import { useMessages } from "./messageProvider.js"
 import { messageHTMLRep } from "./messageHTMLRep.js"
 
 const contentTarget = document.querySelector(".dashboard__messages")
 const eventHub = document.querySelector(".container")
-let messageCards = []
 
 export const messageList = () => {
+    
+    let messageCardPromises = []
     let messages = useMessages()
     for (const chat of messages) {
-        messageCards.push(messageHTMLRep(chat))
+        messageCardPromises.push(messageHTMLRep(chat))
     }
-    contentTarget.innerHTML += messageCards.join("")
+    Promise.all(messageCardPromises)
+        .then(messageCards =>
+            contentTarget.innerHTML += messageCards.join("")
+        )
 }
 
 eventHub.addEventListener("messageStateChanged", () => {

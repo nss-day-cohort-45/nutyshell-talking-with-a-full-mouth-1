@@ -16,10 +16,10 @@ export const messageHTMLRep = (messageObj) => {
     return `
     <section class="message__author" id="message--${messageObj.id}">
         <div class="message__author" id="message__author">
-        ${userObj.username}
+        Name: ${userObj.username}
         </div>
         <div class="message__text" id="message__text"> 
-        ${ messageObj.text}
+        Message: ${ messageObj.text}
          </div>
 
     </section>

@@ -31,6 +31,7 @@ export const articleHTML = (articleObject) => {
             <div class="article__title">Title: ${articleObject.title}</div>
             <div class="article__url">URL: ${articleObject.url}</div>
             <div class="article__synopsis">Synopsis: ${articleObject.synopsis}</div>
+            <div class="article__timestamp">Timestamp: ${ new Date(articleObject.timestamp).toLocaleDateString('en-US')  }</div>
             <button id="deleteArticle--${articleObject.id}">Delete</button>
         </section>
     `

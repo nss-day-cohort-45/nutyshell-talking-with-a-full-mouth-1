@@ -26,11 +26,15 @@ eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "send__message") {
         const text = document.querySelector("#message__text").value
         const userId = sessionStorage.getItem("activeUser")
+        let currentUser = useUsers()
+        let username = currentUser.find(user => user.id === userId).map(user => user.username)
 
         const newMessage = {
             user: userId,
+            username: username,
             text: text
         }
         saveMessage(newMessage)
     }
 })
+// myArray.filter(item => item.type === 'beta').map(item => item.name)

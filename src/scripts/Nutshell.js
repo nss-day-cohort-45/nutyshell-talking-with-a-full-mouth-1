@@ -5,8 +5,6 @@ import { messageForm } from "./messages/messageForm.js"
 import { messageList } from "./messages/messageList.js"
 import { eventList } from "./events/eventList.js"
 import { createNewEventButton } from "./events/eventForm.js"
-import { eventList } from "./events/eventList.js";
-import { createNewEventButton } from "./events/eventForm.js";
 import {newTaskButton} from './tasks/taskHTMLRep.js';
 import {taskList} from './tasks/taskList.js';
 import {taskDialog} from './tasks/taskForm.js';

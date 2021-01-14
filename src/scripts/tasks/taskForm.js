@@ -63,7 +63,7 @@ eventHub.addEventListener("click", e => {
 
 
 
-      // Make a new object representation of a note
+      // Make a new object representation of a task
       const newTask = {
           completionDate: completionDate,
           text: text

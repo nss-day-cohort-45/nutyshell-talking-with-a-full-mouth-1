@@ -24,7 +24,7 @@ eventHub.addEventListener("taskStateChanged", () => {
 
 const render = (taskArray) => {
   const allTasksConvertedToStrings = taskArray.map(
-      // convert the notes objects to HTML with NoteHTMLConverter
+      // convert the tasks objects to HTML with taskHTML
       (task) => {
           return taskHTML(task)
       }).join("")

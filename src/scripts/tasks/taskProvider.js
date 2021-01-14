@@ -21,7 +21,7 @@ return fetch("http://localhost:8088/tasks") // Fetch from the API
     .then(response => response.json())  // Parse as JSON
     .then(parsedTasks => {
       tasks = parsedTasks
-        // What should happen when we finally have the array?
+  
     })
 }
 

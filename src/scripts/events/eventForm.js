@@ -75,7 +75,7 @@ contentElement.addEventListener("click", (clickEvent) => {
 
 contentElement.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {
-     
+        clickEvent.preventDefault()
         let date = document.querySelector("#event__date").value
         let name = document.querySelector("#event__name").value
         let location = document.querySelector("#event__location").value

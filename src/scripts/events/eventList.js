@@ -27,13 +27,22 @@ const render = (events) => {
     contentTarget.innerHTML = allEventsConvertedToStrings
 }
 
+// New Event Listener for DELETING events
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteEvent--")) {
+        const [prefix, entryId] = clickEvent.target.id.split("--")
+
+        deleteEvents(entryId)
+    }
+})
+
 // To reset form after the save button has been clicked
-// eventHub.addEventListener("resetForm", () => {
-//     document.querySelector("#journalDate").value = ""
-//     document.querySelector("#journalConcepts").value = ""
-//     document.querySelector("#journalEntry").value = ""
-//     document.querySelector("#moodForTheDay").value = ""
-//     })
+eventHub.addEventListener("resetForm", () => {
+    document.querySelector("#eventDate").value = ""
+    document.querySelector("#eventName").value = ""
+    document.querySelector("#eventLocation").value = ""
+    document.querySelector("#eventDescription").value = ""
+    })
 
 // New Event Listen for FILTERING entries by mood
 // eventHub.addEventListener("moodChosen", event => {
@@ -49,11 +58,3 @@ const render = (events) => {
 //     }
 // })
 
-// New Event Listener for DELETING events
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("deleteEvent--")) {
-        const [prefix, entryId] = clickEvent.target.id.split("--")
-
-        deleteEvents(entryId)
-    }
-})

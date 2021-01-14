@@ -1,7 +1,15 @@
+/*
+    - Author: Kate Hinrichs
+    - Purpose of Module: 
+        1. To make a "CreateNewEvent" button html representation.
+        2. To make the HTML representation of the createNewEvents form and saveEvent button to be rendered in the <dialog> box.
+        3. Create click event listeners on the CreateNewEventButton, saveEvents button, and the close button (on the dialog box).
+        4. To gather the values entered into the form.
+*/
+
 const eventHub = document.querySelector(".container")
 
 let events = []
-
 
 export const useEvents = () => {
     const sortedByDate = events.sort(
@@ -10,8 +18,6 @@ export const useEvents = () => {
     )
     return sortedByDate
 }
-
-// export const useJournalEntries = () => journal.slice()
 
 const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(new CustomEvent("eventStateChanged"))
@@ -28,7 +34,7 @@ export const getEvents = () => {
 
 export const saveEvents = event => {
     // Use `fetch` with the POST method to add your entry to your API
-    return fetch("http://localhost:8088/entries", {
+    return fetch("http://localhost:8088/events", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -48,5 +54,3 @@ export const deleteEvents = eventId => {
         .then(dispatchStateChangeEvent)
 }
 
-    // You export a function that provides a version of the
-    // // raw data in the format that you want

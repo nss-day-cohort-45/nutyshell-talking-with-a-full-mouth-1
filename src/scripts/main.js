@@ -12,12 +12,6 @@ const eventHub = document.querySelector(".container")
         ensure that the Nutshell component gets rendered
 */
 
-import { eventList } from "./events/eventList.js"
-import { createNewEventButton } from "./events/eventForm.js"
-
-eventList();
-createNewEventButton();
-
 
 // Check sessionStorage for a value for activeUser using .getItem(<key>)
 // Call login and register if .getItem returns null

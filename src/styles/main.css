@@ -1,16 +1,9 @@
 @import "homepage.css";
 
-
-
-
-
 @import "messages.css";
 .articles {
     border: 1px black solid;
 }
-<<<<<<< HEAD
-=======
 .events {
     border: 1px black solid;
 }
->>>>>>> master

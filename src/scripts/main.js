@@ -1,8 +1,11 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
-import {taskForm} from './tasks/taskForm.js'
+
+import {newTaskButton} from './tasks/taskHTMLRep.js'
 import {taskList} from './tasks/taskList.js'
+import {taskDialog} from './tasks/taskForm.js'
+
 
 
 const eventHub = document.querySelector(".container")
@@ -32,5 +35,6 @@ if (sessionStorage.getItem("activeUser") === null) {
     Nutshell()
 }
 
-taskForm()
-taskList()
+newTaskButton();
+taskDialog();
+taskList();

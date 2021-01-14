@@ -4,7 +4,7 @@
 import {useTasks, getTasks} from './taskProvider.js'
 import {taskHTML} from './taskHTMLRep.js'
 
-const contentElement = document.querySelector(".tasks")
+const contentElement = document.querySelector(".task__container")
 
 const render = (taskArray) => {
   const allTasksConvertedToStrings = taskArray.map(

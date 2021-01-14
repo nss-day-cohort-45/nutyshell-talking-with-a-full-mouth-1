@@ -1,5 +1,12 @@
-// Tatiane
-// When the user clicks an affordance for entering a new task, a form should be presented to the user with a two fields to enter in the task name and the expected completion date
+/* 
+  -Author: Tatiane
+  -Purpose:
+  1. To make a "CreateNewTask" button html representation.
+  2. To make the HTML representation of the createNewTask form, saveTask button, and closeTask button to be rendered in the <dialog> box.
+  3. Create click event listeners on the saveTask button, and the close button (on the dialog box).
+  4. To gather the values entered into the form and change the API and application state.
+*/  
+
 
 import { saveTask } from './taskProvider.js';
 
@@ -65,6 +72,9 @@ eventHub.addEventListener("click", e => {
 
       // Change API state and application state
       saveTask(newTask)
+
+      const customEvent = new CustomEvent("resetTaskForm")
+      eventHub.dispatchEvent(customEvent)
   }
 })
 

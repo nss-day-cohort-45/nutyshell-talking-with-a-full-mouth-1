@@ -1,5 +1,10 @@
-// Tatiane
-// grabs saved tasks from the api so that they can be rendered to the DOM in taskList
+/* 
+  -Author: Tatiane
+  -Purpose: 
+  1. GET, POST, DELETE tasks to API
+  2. Dispatch a custom event to eventHub when the state has changed
+  3. Have a useTasks() function that places a .slice() of the raw article data into an array 
+*/
 
 const eventHub = document.querySelector(".container");
 

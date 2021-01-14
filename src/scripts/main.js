@@ -2,9 +2,7 @@ import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
 
-import {newTaskButton} from './tasks/taskHTMLRep.js'
-import {taskList} from './tasks/taskList.js'
-import {taskDialog} from './tasks/taskForm.js'
+
 
 
 
@@ -17,6 +15,7 @@ const eventHub = document.querySelector(".container")
     4. Also, if the user authenticates, and the login form is initially shown
         ensure that the Nutshell component gets rendered
 */
+
 
 // Check sessionStorage for a value for activeUser using .getItem(<key>)
 // Call login and register if .getItem returns null
@@ -35,6 +34,3 @@ if (sessionStorage.getItem("activeUser") === null) {
     Nutshell()
 }
 
-newTaskButton();
-taskDialog();
-taskList();

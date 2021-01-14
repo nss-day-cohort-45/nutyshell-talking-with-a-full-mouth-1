@@ -10,19 +10,17 @@ import { messageHTMLRep } from "./messageHTMLRep.js"
 
 const contentTarget = document.querySelector(".dashboard__messages")
 const eventHub = document.querySelector(".container")
-
-const render = (messageArray) => {
-    let messageCards = []
-    for (const chat of messageArray) {
-        contentTarget.innerHTML = messageCards.push(messageHTMLRep(chat))
-    }
-    
-}
+let messageCards = []
 
 export const messageList = () => {
-    getMessages()
-    .then(() => {
-        const allMessages = useMessages()
-        render(allMessages)
-    })
+    let messages = useMessages()
+    for (const chat of messages) {
+        messageCards.push(messageHTMLRep(chat))
+    }
+    contentTarget.innerHTML += messageCards.join("")
 }
+
+eventHub.addEventListener("messageStateChanged", () => {
+    messageList()
+    console.log("messageStateChangedListening")
+})

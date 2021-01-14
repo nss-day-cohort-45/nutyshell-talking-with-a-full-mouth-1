@@ -5,15 +5,16 @@
 
 import { useUsers } from "../users/userProvider.js"
 
-let currentUser = useUsers()
+const userId = sessionStorage.getItem("activeUser")
 
-export const messageHTMLRep = (messageObj, currentUser) => {
-    
+
+export const messageHTMLRep = (messageObj, user) => {
+    let currentUser = useUsers()
 
     return `
-    <section class="message--${currentUser.username}" id="message">
-        <div class="message__author" id="message__author">
-        
+    <section class="message__author" id="message--${messageObj.id}">
+        <div class="message__author" id="message__author--${userId}">
+        ${currentUser.find(user => user.id === userId).map(user => user.name)}
         </div>
         <div class="message__text" id="message__text"> 
         ${ messageObj.text}
@@ -22,4 +23,6 @@ export const messageHTMLRep = (messageObj, currentUser) => {
     </section>
     `
 }
+
+// myArray.filter(item => item.type === 'beta').map(item => item.name)
 

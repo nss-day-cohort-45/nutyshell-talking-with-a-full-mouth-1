@@ -11,16 +11,23 @@
 
 <body>
     <article class="container">
-        <article class="auth">
+        <article class="auth" id="tryToReachUserId">
             <section class="auth--login"></section>
             <section class="auth--register"></section>
         </article>
         <article class="dashboard">
+            <section id="tasks">
+                <dialog class="dialog__container"></dialog>
+                <section class="task__container"></section>
+                <div class="createTaskButton"></div>
+            </section>
+            
+            
             <!-- All your Nutshell are belong here -->
             <section class="events">
                 <section class="dashboard__events"></section>
                 <div class="dashboard__events--button"></div>  
-                <dialog class ="events__newEventForm"</dialog></dialog>
+                <dialog class ="events__newEventForm"></dialog>
             </section>
             <section class="articles">
                 <dialog class="articles__dialog"></dialog>

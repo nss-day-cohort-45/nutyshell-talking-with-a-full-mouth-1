@@ -1,1 +1,6 @@
 @import "homepage.css";
+
+
+.articles {
+    border: 1px black solid;
+}

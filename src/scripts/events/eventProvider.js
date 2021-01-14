@@ -1,13 +1,19 @@
 /*
     - Author: Kate Hinrichs
     - Purpose of Module: 
-        1. To make a "CreateNewEvent" button html representation.
-        2. To make the HTML representation of the createNewEvents form and saveEvent button to be rendered in the <dialog> box.
-        3. Create click event listeners on the CreateNewEventButton, saveEvents button, and the close button (on the dialog box).
-        4. To gather the values entered into the form.
+        1. GET, POST, and DELETE events to API
+        2. Create copy of the events information that can be used throughout the modules
+        3. Dispatch an event when the events have been changed
 */
 
 const eventHub = document.querySelector(".container")
+
+// Dispatch event when an event has been added, deleted, or edited  --------------------------------------------------------------------
+const dispatchStateChangeEvent = () => {
+    eventHub.dispatchEvent(new CustomEvent("eventStateChanged"))
+}
+
+// -------------------------------------------------------------------------------------------------------------------------------------
 
 let events = []
 
@@ -18,10 +24,7 @@ export const useEvents = () => {
     )
     return sortedByDate
 }
-
-const dispatchStateChangeEvent = () => {
-    eventHub.dispatchEvent(new CustomEvent("eventStateChanged"))
-}
+// -------------------------------------------------------------------------------------------------------------------------------------
 
 export const getEvents = () => {
     return fetch("http://localhost:8088/events") // Fetch from the API
@@ -31,6 +34,8 @@ export const getEvents = () => {
             events = parsedEvents
         })
 }
+
+// -------------------------------------------------------------------------------------------------------------------------------------
 
 export const saveEvents = event => {
     // Use `fetch` with the POST method to add your entry to your API
@@ -45,7 +50,8 @@ export const saveEvents = event => {
         .then(dispatchStateChangeEvent)
 }
 
-// Method to DELETE entries
+// -------------------------------------------------------------------------------------------------------------------------------------
+
 export const deleteEvents = eventId => {
     return fetch(`http://localhost:8088/events/${eventId}`, {
         method: "DELETE"

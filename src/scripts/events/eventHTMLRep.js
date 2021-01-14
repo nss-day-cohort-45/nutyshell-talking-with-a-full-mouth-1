@@ -1,10 +1,8 @@
-
-
-import { createNewEvent } from "./eventForm.js"
-
-const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".dashboard__events--button")
-const taco = document.querySelector(".events__newEventForm")
+/*
+    - Author: Kate Hinrichs
+    - Purpose of Module: 
+        1. Create a function to make the HTML representation of an individual event entry to be shown on the DOM
+*/
 
 export const eventHTMLRep = (event) => {
     return `
@@ -18,14 +16,3 @@ export const eventHTMLRep = (event) => {
     </div>
     `
 }
-
-// export const createNewEventButton = () => {
-//     contentTarget.innerHTML = "<button id='createNewEventButton'>Create New Event</button>"
-// }
-
-// eventHub.addEventListener("click", (clickEvent) => {
-//     if (clickEvent.target.id === "createNewEventButton")
-
-//     taco.showModal()
-//     createNewEvent()
-// })

@@ -1,12 +1,25 @@
+/*
+    - Author: Kate Hinrichs
+    - Purpose of Module: 
+        1. To create HTML represenation of events list on the DOM upon the inital page load of nutshell.js
+        2. To listen if an event has been deleted and call the proper functions to delete the event object from the API
+        3. To listen for changes to the events and create an updated HTML representation in the DOM
+        4. To reset the form fields when an event has been saved. 
+*/
+
 import { useEvents, getEvents, deleteEvents } from "./eventProvider.js"
 import { eventHTMLRep } from "./eventHTMLRep.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".dashboard__events")
 
+// Event Listener to rerender the list of events when there's been a change to the events ----------------------------------------------
+
 eventHub.addEventListener("eventStateChanged", () => {
     eventList()
 })
+
+// Used to create the HTML representation of the events list on the DOM ----------------------------------------------------------------
 
 export const eventList = () => {
     getEvents()
@@ -27,34 +40,21 @@ const render = (events) => {
     contentTarget.innerHTML = allEventsConvertedToStrings
 }
 
-// New Event Listener for DELETING events
+// Event Listener for DELETING events --------------------------------------------------------------------------------------------------
+
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteEvent--")) {
         const [prefix, entryId] = clickEvent.target.id.split("--")
-
         deleteEvents(entryId)
     }
 })
 
-// To reset form after the save button has been clicked
+// Event Listener to reset the form after the save button has been clicked -------------------------------------------------------------
+
 eventHub.addEventListener("resetForm", () => {
-    document.querySelector("#eventDate").value = ""
-    document.querySelector("#eventName").value = ""
-    document.querySelector("#eventLocation").value = ""
-    document.querySelector("#eventDescription").value = ""
-    })
-
-// New Event Listen for FILTERING entries by mood
-// eventHub.addEventListener("moodChosen", event => {
-//     if (event.target.moodThatWasChosen !== "0") {
-
-//         const moods = useMoods()
-//         const mood = moods.find((mood) => mood.id === parseInt(event.detail.moodThatWasChosen))
-      
-//         const entries = useJournalEntries()
-//         const matchingEntries = entries.filter( (entry) => entry.moodId === mood.id)
-
-//         render(matchingEntries, moods)
-//     }
-// })
+    document.querySelector("#event__date").value = ""
+    document.querySelector("#event__name").value = ""
+    document.querySelector("#event__location").value = ""
+    document.querySelector("#event__description").value = ""
+})
 

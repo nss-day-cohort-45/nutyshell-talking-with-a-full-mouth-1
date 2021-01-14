@@ -3,18 +3,23 @@
 //Renders the message into HTML for rendering to the DOM
 //Appends the username to the message text
 
-import { useUsers } from "../users/userProvider.js"
+import { useUsers, getUsers } from "../users/userProvider.js"
 
 
 
-export const messageHTMLRep = (messageObj, user) => {
-    let currentUser = useUsers()
+export const messageHTMLRep = (messageObj, userObj) => {
     const userId = sessionStorage.getItem("activeUser")
+    let userObj =""
+    getUsers()
+        .then(() => {
+            let users = useUsers()
+            userObj = users.find(user => user.id === userId)
+        
 
     return `
     <section class="message__author" id="message--${messageObj.id}">
-        <div class="message__author" id="message__author--${userId}">
-        ${currentUser.filter(user => user.id === userId).map(user => user.name)}
+        <div class="message__author" id="message__author>
+        ${userObj.username}
         </div>
         <div class="message__text" id="message__text"> 
         ${ messageObj.text}
@@ -22,7 +27,8 @@ export const messageHTMLRep = (messageObj, user) => {
 
     </section>
     `
+})
 }
 
-// myArray.filter(item => item.type === 'beta').map(item => item.name)
+
 

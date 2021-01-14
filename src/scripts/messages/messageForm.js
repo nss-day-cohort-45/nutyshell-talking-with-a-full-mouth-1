@@ -5,7 +5,7 @@
 //Handles browser-generated click event of sendMessage
 
 import { getMessages, saveMessage } from "./messageProvider.js"
-import { useUsers } from "../users/userProvider.js"
+import { useUsers, getUsers } from "../users/userProvider.js"
 
 const contentTarget = document.querySelector(".dashboard__messages")
 const eventHub = document.querySelector(".container")
@@ -19,22 +19,24 @@ const render = () => {
 
 export const messageForm = () => {
     getMessages()
-    .then( () => render())
+        .then(() => render())
 }
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "send__message") {
         const text = document.querySelector("#message__text").value
-        const userId = sessionStorage.getItem("activeUser")
-        let currentUser = useUsers()
-        let username = currentUser.find(user => user.id === userId).map(user => user.username)
-
-        const newMessage = {
-            user: userId,
-            username: username,
-            text: text
-        }
-        saveMessage(newMessage)
+        const userId = parseInt(sessionStorage.getItem("activeUser"))
+        let userObj = ""
+        getUsers()
+            .then(() => {
+                let users = useUsers()
+                userObj = users.find(user => user.id === userId)
+                const newMessage = {
+                    user: userId,
+                    username: userObj.username,
+                    text: text
+                }
+                saveMessage(newMessage)
+            })
     }
 })
-// myArray.filter(item => item.type === 'beta').map(item => item.name)

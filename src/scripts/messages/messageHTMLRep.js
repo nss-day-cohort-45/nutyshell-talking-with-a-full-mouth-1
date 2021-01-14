@@ -5,11 +5,11 @@
 
 import { useUsers } from "../users/userProvider.js"
 
-const userId = sessionStorage.getItem("activeUser")
 
 
 export const messageHTMLRep = (messageObj, user) => {
     let currentUser = useUsers()
+    const userId = sessionStorage.getItem("activeUser")
 
     return `
     <section class="message__author" id="message--${messageObj.id}">

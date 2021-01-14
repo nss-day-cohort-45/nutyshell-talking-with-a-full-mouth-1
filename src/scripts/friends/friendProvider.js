@@ -7,20 +7,21 @@
  * The users friends can then be retrieved for use by other modules using useFriends()
  * 
  */
+let friends = []
 let userFriends = []
 
 const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
 export const getFriends = () => {
-    let friends = []
-    return fetch('http://localhost:8088/friends')
+    return fetch("http://localhost:8088/friends")
         .then(response => response.json())
         .then(parsedFriends => {
             friends = parsedFriends
+            console.log("friends array: ", friends)
         })
-        .then((friends) => { 
+        .then(() => { 
             // Make sure that only the current user's friends are returned
-            userFriends = friends.map((friend) => {
+            userFriends = friends.filter((friend) => {
                 if (friend.userId === currentUserId) {
                     return friend
                 } 
@@ -29,5 +30,6 @@ export const getFriends = () => {
 }
 
 export const useFriends = () => {
+    console.log(userFriends)
     return userFriends.slice()
 }

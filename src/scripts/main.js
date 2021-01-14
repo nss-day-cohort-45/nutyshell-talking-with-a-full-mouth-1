@@ -3,12 +3,9 @@ import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
 
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> master
 const eventHub = document.querySelector(".container")
 
 /*

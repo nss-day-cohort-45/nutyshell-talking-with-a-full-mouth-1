@@ -5,3 +5,6 @@
 
 
 @import "messages.css";
+.articles {
+    border: 1px black solid;
+}

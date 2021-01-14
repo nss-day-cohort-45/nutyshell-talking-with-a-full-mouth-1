@@ -13,6 +13,7 @@ const eventHub = document.querySelector(".container")
         ensure that the Nutshell component gets rendered
 */
 
+
 // Check sessionStorage for a value for activeUser using .getItem(<key>)
 // Call login and register if .getItem returns null
 // Add event listener to trigger nutshell when sessionStorage changes

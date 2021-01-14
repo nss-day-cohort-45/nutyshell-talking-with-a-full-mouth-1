@@ -2,8 +2,10 @@ import { friendList } from "./friends/friendList.js"
 import { createArticleButton } from './articles/articleHTMLRepresentation.js';
 import { articleDialog } from './articles/articleForm.js';
 import { articleList } from './articles/articleList.js';
-import { eventList } from "./events/eventList.js";
-import { createNewEventButton } from "./events/eventForm.js";
+import { messageForm } from "./messages/messageForm.js"
+import { messageList } from "./messages/messageList.js"
+import { eventList } from "./events/eventList.js"
+import { createNewEventButton } from "./events/eventForm.js"
 import {newTaskButton} from './tasks/taskHTMLRep.js';
 import {taskList} from './tasks/taskList.js';
 import {taskDialog} from './tasks/taskForm.js';
@@ -14,6 +16,11 @@ export const Nutshell = () => {
     createArticleButton();
     articleDialog();
     articleList();
+    messageForm()
+    .then(() => {
+        messageList()
+    })
+    
 
     newTaskButton();
     taskDialog();

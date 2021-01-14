@@ -71,6 +71,8 @@ eventHub.addEventListener("click", clickEvent => {
             title: title,
             url: url, 
             synopsis: synopsis,
+            timestamp: Date.now(),
+            userId: parseInt(document.getElementById("tryToReachUserId").innerHTML = sessionStorage.getItem("activeUser"))
         }
         saveArticle(newArticle)
     }

@@ -8,20 +8,20 @@
 */
 
 import {createNewTask} from './taskForm.js'
-import {deleteTask} from './taskProvider.js'
+import {deleteTask, checkTaskAsComplete} from './taskProvider.js'
 
 const eventHub = document.querySelector(".container");
 
 export const taskHTML = (task) => {
   return `
-  <div class="task">
-    <input type="checkbox" id="checked" class="task" name="task" value="true">
+  <div id="taskBox" class="task">
+    <input type="checkbox" id="checked--${task.id}" class="task" name="task" value="true">
     <div>Task: ${task.text}</div>
     <div>Completion Date: ${task.completionDate}</div>
     <button id="deleteTask--${task.id}" class="margin_left">Delete</button>
   </div>
   `
-}
+};
 
 // -----------------------------------------------------------------
 
@@ -30,7 +30,7 @@ export const newTaskButton = () => {
   contentElement.innerHTML = `
   <button id="createNewTask">Create New Task</button>
   `
-}
+};
 
 // -----------------------------------------------------------------
 
@@ -52,3 +52,12 @@ eventHub.addEventListener("click", clickEvent => {
      deleteTask(taskId)
   }
 }); 
+
+// -----------------------------------------------------------------
+
+eventHub.addEventListener("click", clickEvent => {
+  if (clickEvent.target.id.startsWith("checked--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--")
+    checkTaskAsComplete(taskId)
+  }
+});

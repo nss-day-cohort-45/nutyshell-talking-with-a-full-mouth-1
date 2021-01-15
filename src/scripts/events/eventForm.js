@@ -11,7 +11,7 @@ import { saveEvents } from "./eventProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".dashboard__events--button")
-const contentElement = document.querySelector(".events__newEventForm")
+const contentElement = document.querySelector(".dashboard__events--form")
 
 
 // To create HTML representation of the createNewEvent button on the DOM ---------------------------------------------------------------
@@ -85,7 +85,8 @@ contentElement.addEventListener("click", clickEvent => {
                 date: date,
                 name: name,
                 location: location,
-                description: description
+                description: description,
+                userId: parseInt(document.getElementById("tryToReachUserId").innerHTML = sessionStorage.getItem("activeUser"))
             }
         
             saveEvents(newEvent)

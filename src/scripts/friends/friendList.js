@@ -10,15 +10,17 @@
  */
 
 import { getFriends, useFriends } from "./friendProvider.js"
-import { friendHTMLRep } from "./friendHTMLRep.js"
+import { friendHTMLRep, friendContainerHTML } from "./friendHTMLRep.js"
 import { getUsers, useUsers } from "../users/userProvider.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".friend__container")
+const contentTarget = document.querySelector(".friends")
 const currentUserId = parseInt(sessionStorage.getItem("activeUser")) 
 
 export const friendList = () => {
-    // The userId was stored when the user logged in. All Nutshell components will use this value.
+    const friendHTMLContainer = friendContainerHTML()
+    contentTarget.innerHTML = friendHTMLContainer
+    const contentElement = document.querySelector(".friends__container")
 
     let userFriends = []
     // Here, we pull the user-friend relationships from the DB
@@ -39,16 +41,16 @@ export const friendList = () => {
                 }
             })
 
-            renderFriends(friendsOfUser)
+            renderFriends(friendsOfUser, contentElement)
         })
 
 }
 
-const renderFriends = (friends) => {
+const renderFriends = (friends, contentElement) => {
     const friendHTML = friends.map((friendObj) => { // Wrap each friend's username in HTML and join it
         return friendHTMLRep(friendObj)             // to the friendHTML variable, which is then added 
     }).join("")                                     // added to the DOM.
-    contentTarget.innerHTML = friendHTML
+    contentElement.innerHTML = friendHTML
 
     
 }

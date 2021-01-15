@@ -1,0 +1,17 @@
+.friends {
+    border: 1px solid black;
+}
+
+.friends__header {
+    line-height: 0;
+}
+
+.friends__container {
+    overflow: auto;
+    /* adds a scrollbar when the list of friends
+    becomes too big for the container */
+}
+
+.friends__add--button {
+    margin: 5px;
+}

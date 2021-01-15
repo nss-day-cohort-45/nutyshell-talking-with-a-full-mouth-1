@@ -6,17 +6,27 @@
 @import "tasks.css";
 
 
-.messgaeConatinerForCSS {
-    display: block;
-}
 .container {
     display: flex;
+    position: relative;
     
 }
 .fullDashboard {
+    flex: 5;
+    margin-right: 310px;
+}
+
+.messgaeConatinerForCSS {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: 0;
+}
+
+.fullDashboard section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 .articles {

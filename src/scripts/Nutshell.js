@@ -9,6 +9,7 @@ import { createNewEventButton } from "./events/eventForm.js"
 import {newTaskButton} from './tasks/taskHTMLRep.js';
 import {taskList} from './tasks/taskList.js';
 import {taskDialog} from './tasks/taskForm.js';
+import "./weather/weatherHTMLRep.js";
 
 
 export const Nutshell = () => {

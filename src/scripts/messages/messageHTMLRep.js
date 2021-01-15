@@ -3,7 +3,6 @@
 //Renders the message into HTML for rendering to the DOM
 //Appends the username to the message text
 
-import { useUsers, getUsers } from "../users/userProvider.js"
 
 export const messageHTMLRep = (messageObj) => {
     // const userId = parseInt(sessionStorage.getItem("activeUser"))

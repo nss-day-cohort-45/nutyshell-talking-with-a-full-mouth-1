@@ -5,7 +5,7 @@
 //Creates Delete button 
 //Listens if Delete button has been clicked and commuicates with deleteMessage
 //in messageProvider
-// import { deleteMessage } from "./messageProvider.js"
+import { deleteMessage } from "./messageProvider.js"
 
 const eventHub = document.querySelector(".container");
 

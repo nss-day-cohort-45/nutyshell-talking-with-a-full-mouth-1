@@ -7,6 +7,7 @@
 const eventHub = document.querySelector(".container")
 const contentElement = document.querySelector(".dashboard__weather--dialog")
 
+// List for showWeather to be clicked --------------------------------------------------------------------------
 eventHub.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id.startsWith("showWeather--")) {
      

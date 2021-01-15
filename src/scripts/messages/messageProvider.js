@@ -11,7 +11,7 @@ let messages = []
 export const useMessages = () => messages.slice()
 
 export const getMessages = () => {
-    return fetch("http://localhost:8088/messages?_expand=user")
+    return fetch("http://localhost:8088/messages")
         .then(response => response.json())
         .then(apiMessages => {
             messages = apiMessages

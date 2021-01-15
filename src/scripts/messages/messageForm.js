@@ -1,6 +1,6 @@
 //Christine
 
-//imports saveMessage and getMessage
+//imports saveMessage, getMessage, useUsers, getUsers
 //Renders the form and send button to the DOM with messageForm
 //Handles browser-generated click event of sendMessage
 

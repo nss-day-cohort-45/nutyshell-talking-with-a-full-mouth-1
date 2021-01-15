@@ -1,14 +1,41 @@
 @import "homepage.css";
+
+
 @import "friends.css";
 @import "messages.css";
 @import "tasks.css";
 
 
+.container {
+    display: flex;
+    position: relative;
+    
+}
+.fullDashboard {
+    flex: 5;
+    margin-right: 310px;
+}
 
+.messgaeConatinerForCSS {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: 0;
+}
+
+.fullDashboard section {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .articles {
     border: 1px black solid;
 }
 .events {
     border: 1px black solid;
+}
+
+.hidden {
+    display: none;
 }

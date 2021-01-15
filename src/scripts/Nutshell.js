@@ -21,13 +21,12 @@ export const Nutshell = () => {
         messageList()
     })
     
+    friendList();
 
     newTaskButton();
     taskDialog();
     taskList();
 
-
-  
     // Will rener the createNewEventButton and list of upcoming events on initial page load
     createNewEventButton();
     eventList();
@@ -35,7 +34,7 @@ export const Nutshell = () => {
     console.log("Nutshell has been rendered!")
     console.log("Session storage user id: ", sessionStorage.getItem("activeUser") )
 
-    friendList()
+    
 
 
 

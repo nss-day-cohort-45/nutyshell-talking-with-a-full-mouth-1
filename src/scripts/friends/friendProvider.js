@@ -10,7 +10,6 @@
 let friends = []
 let userFriends = []
 
-const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
 
 export const getFriends = () => {
     return fetch("http://localhost:8088/friends")
@@ -19,6 +18,7 @@ export const getFriends = () => {
             friends = parsedFriends
         })
         .then(() => { 
+            const currentUserId = parseInt(sessionStorage.getItem("activeUser"))
             // Make sure that only the current user's friends are returned
             userFriends = friends.filter((friend) => {
                 if (friend.userId === currentUserId) {

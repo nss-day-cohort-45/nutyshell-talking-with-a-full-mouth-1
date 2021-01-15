@@ -25,13 +25,11 @@ export const friendList = () => {
     let userFriends = []
     // Here, we pull the user-friend relationships from the DB
     // Only friend relationships that have the currentUserId as the userId will be pulled
-    getFriends() 
-        .then(() => {
-            userFriends = useFriends() // an array of objects
-        })
     
     getUsers()
+        .then(getFriends)
         .then(() => {
+            userFriends = useFriends()
             let allUsers = useUsers() // grab all user objects in the database
             const friendsOfUser = allUsers.filter(user => { // Compare the id of each user in allUsers
                 for (const friend of userFriends) {         // to the friendId of each relationship in 

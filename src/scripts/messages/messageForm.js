@@ -12,8 +12,14 @@ const eventHub = document.querySelector(".container")
 
 const render = () => {
     contentTarget.innerHTML = `
-    <textarea class="message__input" id="message__input" placeholder="Enter Message"></textarea>
-    <button class="send__message" id="send__message">Send</button>
+    <form class="message__form">
+    <fieldset class="message__fieldset" id = "message__fieldset">
+
+    <textarea rows="5" cols="50" name="message__input" class="message__input" id="message__input" placeholder="Enter Message"></textarea>
+    
+    <button type="button" class="send__message" id="send__message">Send</button>
+    </fieldset>
+    </form>
     `
 }
 
@@ -24,12 +30,12 @@ export const messageForm = () => {
 }
 
 eventHub.addEventListener("click", clickEvent => {
-    console.log("Click event listening")
+    
     if (clickEvent.target.id === "send__message") {
         clickEvent.preventDefault()
         const text = document.querySelector("#message__input").value
         const userId = parseInt(sessionStorage.getItem("activeUser"))
-        debugger
+        
         let userObj = ""
         getUsers()
             .then(() => {
@@ -41,5 +47,10 @@ eventHub.addEventListener("click", clickEvent => {
                 }
                 saveMessage(newMessage)
             })
+            const resetEvent = new CustomEvent("clearForm")
+            eventHub.dispatchEvent(resetEvent)
     }
 })
+
+
+ 

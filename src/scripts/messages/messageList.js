@@ -24,5 +24,10 @@ export const messageList = () => {
 
 eventHub.addEventListener("messageStateChanged", () => {
     messageList()
-    console.log("messageStateChangedListening")
+    
+})
+
+eventHub.addEventListener("clearForm", () => {
+    document.querySelector("#message__input").value = ""
+    
 })

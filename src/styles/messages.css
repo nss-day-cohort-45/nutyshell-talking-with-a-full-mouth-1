@@ -1,0 +1,15 @@
+.message {
+    border: 1px dashed black;
+    padding: 5px;
+    font-family: sans-serif;
+}
+
+#dashboard__messages{
+    overflow: auto;
+}
+#message__author {
+    color: blue;
+}
+#message__fieldset {
+    background-color: blue;
+}

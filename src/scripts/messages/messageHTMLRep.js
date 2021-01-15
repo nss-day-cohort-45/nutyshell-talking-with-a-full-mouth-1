@@ -12,7 +12,7 @@ const eventHub = document.querySelector(".container");
 export const messageHTMLRep = (messageObj) => {
         
     return `
-    <section class="message" id="message--${messageObj.id}">
+    <section class="message" id="message">
         <div class="message__author" id="message__author">
         Name: ${messageObj.user.username}
         </div>

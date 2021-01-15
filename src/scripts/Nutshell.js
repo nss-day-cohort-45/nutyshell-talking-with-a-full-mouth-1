@@ -17,7 +17,7 @@ export const Nutshell = () => {
     articleDialog();
     articleList();
     messageForm()
-    .then(() => {
+        .then(() => {
         messageList()
     })
     

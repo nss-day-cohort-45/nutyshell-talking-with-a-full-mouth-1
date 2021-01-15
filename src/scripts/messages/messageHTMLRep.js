@@ -13,7 +13,7 @@ export const messageHTMLRep = (messageObj) => {
     //         userObj = users.find(user => user.id === userId)
            
     return `
-    <section class="message__author" id="message--${messageObj.id}">
+    <section class="message" id="message--${messageObj.id}">
         <div class="message__author" id="message__author">
         Name: ${messageObj.user.username}
         </div>

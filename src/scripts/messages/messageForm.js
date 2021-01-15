@@ -12,7 +12,7 @@ const eventHub = document.querySelector(".container")
 
 const render = () => {
     contentTarget.innerHTML = `
-    <textarea class="message__text" id="message__text" placeholder="Enter Message"></textarea>
+    <textarea class="message__input" id="message__input" placeholder="Enter Message"></textarea>
     <button class="send__message" id="send__message">Send</button>
     `
 }
@@ -20,22 +20,23 @@ const render = () => {
 export const messageForm = () => {
     return getMessages()
         .then(() => render())
+        
 }
 
 eventHub.addEventListener("click", clickEvent => {
     console.log("Click event listening")
     if (clickEvent.target.id === "send__message") {
         clickEvent.preventDefault()
-        const text = document.querySelector("#message__text").value
+        const text = document.querySelector("#message__input").value
         const userId = parseInt(sessionStorage.getItem("activeUser"))
+        debugger
         let userObj = ""
         getUsers()
             .then(() => {
                 let users = useUsers()
                 userObj = users.find(user => user.id === userId)
                 const newMessage = {
-                    user: userId,
-                    username: userObj.username,
+                    userId: userId,
                     text: text
                 }
                 saveMessage(newMessage)

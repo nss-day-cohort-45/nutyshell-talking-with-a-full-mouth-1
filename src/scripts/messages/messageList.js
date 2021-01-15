@@ -13,15 +13,13 @@ const eventHub = document.querySelector(".container")
 
 export const messageList = () => {
     
-    let messageCardPromises = []
+    let messageCards = []
     let messages = useMessages()
     for (const chat of messages) {
-        messageCardPromises.push(messageHTMLRep(chat))
+        messageCards.push(messageHTMLRep(chat))
+        contentTarget.innerHTML = messageCards.join("")
     }
-    Promise.all(messageCardPromises)
-        .then(messageCards =>
-            contentTarget.innerHTML += messageCards.join("")
-        )
+   
 }
 
 eventHub.addEventListener("messageStateChanged", () => {

@@ -6,7 +6,18 @@
 @import "tasks.css";
 
 
-
+.messgaeConatinerForCSS {
+    display: block;
+}
+.container {
+    display: flex;
+    
+}
+.fullDashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
 .articles {
     border: 1px black solid;

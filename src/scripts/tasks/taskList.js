@@ -17,7 +17,7 @@ const contentElement = document.querySelector(".task__container")
 // -----------------------------------------------------------------
 
 eventHub.addEventListener("taskStateChanged", () => {
-    taskList()
+   taskList()   
 })
 
 // -----------------------------------------------------------------
@@ -38,7 +38,12 @@ export const taskList = () => {
   getTasks()
       .then(() => {
           const allTasks = useTasks()
-          render(allTasks)
+          let falseTasks = allTasks.filter((task) => {
+            if(task.complete === false) {
+                return task
+            }
+            })
+            render(falseTasks)
       })
 }
 

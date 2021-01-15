@@ -11,7 +11,7 @@ let messages = []
 export const useMessages = () => messages.slice()
 
 export const getMessages = () => {
-    return fetch("http://localhost:8088/messages")
+    return fetch("http://localhost:8088/messages?_expand=user")
         .then(response => response.json())
         .then(apiMessages => {
             messages = apiMessages
@@ -19,7 +19,7 @@ export const getMessages = () => {
 }
 
 export const saveMessage = message => {
-    return fetch("http://localhost:8088/messages", {
+    return fetch("http://localhost:8088/messages?_expand=user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -34,3 +34,4 @@ const dispatchStateChangeEvent = () => {
     const messageStateChangedEvent = new CustomEvent("messageStateChanged")
     eventHub.dispatchEvent(messageStateChangedEvent)
 }
+

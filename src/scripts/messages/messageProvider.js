@@ -35,3 +35,9 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(messageStateChangedEvent)
 }
 
+// export const deleteMessage = messageId => {
+//     return fetch(`http://localhost8088/messages/${messageId}`, {
+//         method: "DELETE"
+//     })
+//     .then(dispatchStateChangeEvent)
+// }

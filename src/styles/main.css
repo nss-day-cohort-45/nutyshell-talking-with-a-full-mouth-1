@@ -13,3 +13,7 @@
 .events {
     border: 1px black solid;
 }
+
+.hidden {
+    display: none;
+}

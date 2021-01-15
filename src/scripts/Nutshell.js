@@ -12,6 +12,8 @@ import {taskDialog} from './tasks/taskForm.js';
 
 export const Nutshell = () => {
     // Render all your UI components here
+    const hideCss = document.querySelector("#tryToReachUserId")
+    hideCss.classList.add("hidden")
     createArticleButton();
     articleDialog();
     articleList();

@@ -24,6 +24,12 @@ const eventHub = document.querySelector(".container")
 if (sessionStorage.getItem("activeUser") === null) {
     RegisterForm()
     LoginForm()
+    const hideTasksDiv = document.querySelector(".testClass")
+    hideTasksDiv.classList.toggle("hidden")
+    const hideEventsDiv = document.querySelector(".testClass")
+    hideEventsDiv.classList.toggle("hidden")
+    const hideArticlesDiv = document.querySelector(".testClass")
+    hideArticlesDiv.classList.toggle("hidden")
 
     // LoginForm() dispatches the "userAuthenticated" custom event when
     // sessionStorage is set. 

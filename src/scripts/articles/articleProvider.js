@@ -29,7 +29,13 @@ const dispatchStateChangeEvent = () => {
 
 let articles = [];
 
-export const useArticles = () => articles.slice();
+export const useArticles = () => {
+    const articlesArrangedByDate = articles.sort(
+        (currentArticle, nextArticle) =>
+            Date.parse(currentArticle.date) - Date.parse(nextArticle.date)
+    )
+    return articlesArrangedByDate
+};
 
 
 

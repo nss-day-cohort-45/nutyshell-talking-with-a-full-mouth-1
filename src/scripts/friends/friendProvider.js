@@ -17,7 +17,6 @@ export const getFriends = () => {
         .then(response => response.json())
         .then(parsedFriends => {
             friends = parsedFriends
-            console.log("friends array: ", friends)
         })
         .then(() => { 
             // Make sure that only the current user's friends are returned
@@ -30,6 +29,5 @@ export const getFriends = () => {
 }
 
 export const useFriends = () => {
-    console.log(userFriends)
     return userFriends.slice()
 }

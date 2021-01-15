@@ -24,7 +24,7 @@ export const createNewTask = () => {
           <div class="form__fieldset_flex">
             <div class="form__input">
               <label for="task_entry">Task Entry</label>
-              <input id="text" name="task_entry" type="text></input>
+              <input id="text" name="task_entry" type="text"></input>
             </div>
             <div class="form__input">
               <label for="task_date">Completion Date</label>
@@ -60,13 +60,14 @@ eventHub.addEventListener("click", e => {
       // need to gather the data from the form
       const completionDate = document.querySelector("#completionDate").value
       const text = document.querySelector("#text").value
-
+      const complete = false
 
 
       // Make a new object representation of a task
       const newTask = {
           completionDate: completionDate,
-          text: text
+          text: text,
+          complete: complete
           
       }
 

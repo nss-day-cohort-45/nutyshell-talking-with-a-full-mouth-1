@@ -52,5 +52,19 @@ export const deleteTask = taskId => {
   return fetch(`http://localhost:8088/tasks/${taskId}`, {
       method: "DELETE"
   })
+      .then(getTasks)
       .then(dispatchStateChangeEvent)
 };
+
+// ---------------------------------------------------------------
+
+export const checkTaskAsComplete = (taskId) => {
+  return fetch(`http://localhost:8088/tasks/${taskId}`, {
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({complete: true})
+  })
+  .then(dispatchStateChangeEvent)
+}

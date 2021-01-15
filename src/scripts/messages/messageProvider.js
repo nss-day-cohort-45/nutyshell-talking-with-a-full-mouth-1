@@ -19,7 +19,7 @@ export const getMessages = () => {
 }
 
 export const saveMessage = message => {
-    return fetch("http://localhost:8088/messages?_expand=user", {
+    return fetch("http://localhost:8088/messages", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -35,3 +35,13 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(messageStateChangedEvent)
 }
 
+export const deleteMessage = messageId => {
+    
+    return fetch(`http://localhost:8088/messages/${messageId}`, {
+        method: "DELETE"
+    }
+       
+    )
+    .then(getMessages)
+    .then(dispatchStateChangeEvent)
+}
